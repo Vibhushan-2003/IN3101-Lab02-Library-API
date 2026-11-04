@@ -1,0 +1,58 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Secrets and Local Configs ###
+*.env
+*.env.*
+*.secret
+*.key
+*.token
+credentials.json
+local.properties
+
+### Evidence, Submission Files, and Logs ###
+*.pdf
+*.docx
+*.png
+*.jpg
+*.jpeg
+screenshots/
+logs/
+*.log
+
+### OS and Temp Files ###
+.DS_Store
+Thumbs.db
+tmp/
+temp/
