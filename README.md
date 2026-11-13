@@ -142,3 +142,46 @@ A ready-to-use Postman Collection is provided at:
 - **Index:** 235115D
 - **University:** University of Moratuwa
 - **Faculty:** Faculty of Information Technology
+
+---
+
+## 9. Lab Sheet 03 â€” Containerising the Library API with Docker
+
+### 9.1 Architecture
+- **API Service (`api`):** Spring Boot 3.4.5 built with Eclipse Temurin Java 21 JRE, exposed on port `8080`.
+- **Database Service (`db`):** MySQL 8.4 Server exposed on host port `3307` (container port `3306`) with health check.
+- **Storage:** Named volume `library-data` mapped to `/var/lib/mysql` for persistent database storage across container lifecycles.
+- **Orchestration:** Managed using Docker Compose (`compose.yaml`).
+
+### 9.2 Running with Docker Compose
+
+1. **Configure Environment:**
+   Copy `.env.example` to `.env` (or configure local password):
+   ```bash
+   cp .env.example .env
+   # Ensure DB_ROOT_PASSWORD is set (e.g., DB_ROOT_PASSWORD=root123)
+   ```
+
+2. **Build and Start Containers:**
+   ```bash
+   docker compose up --build -d
+   ```
+
+3. **Verify Service Status:**
+   ```bash
+   docker compose ps
+   docker compose logs -f api
+   ```
+
+4. **Access the Application:**
+   - **REST API:** [http://localhost:8080/api/books](http://localhost:8080/api/books)
+   - **Swagger UI:** [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+   - **MySQL Host Port:** `localhost:3307` (`library_db`)
+
+5. **Stop Containers (preserving data volume):**
+   ```bash
+   docker compose down
+   ```
+   > **Note:** Never use `-v` flag if you want to preserve database records stored in the `library-data` volume.
+
+

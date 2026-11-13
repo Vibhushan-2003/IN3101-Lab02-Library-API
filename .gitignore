@@ -33,8 +33,10 @@ build/
 .vscode/
 
 ### Secrets and Local Configs ###
+.env
 *.env
 *.env.*
+!.env.example
 *.secret
 *.key
 *.token
